@@ -81,11 +81,11 @@ const Comments = ({ postIndex }) => {
             
             style={{
                 color: 'white',
-                backgroundColor : '#0000ff' ,           
+                backgroundColor : '#1890ff' ,           
                 border: '0px solid white',             
                 borderRadius: '10px',        
                 cursor: 'pointer',           
-                fontSize: '13px',            
+                fontSize: '14px',            
                 fontWeight: '700',
                 padding : '5px'
             }}
@@ -190,7 +190,7 @@ const Comments = ({ postIndex }) => {
                 
                 style={{
                   
-                    color: 'blue',             
+                    color: '#1890ff',             
                     border: 'none',             
                     cursor: 'pointer',         
                     fontSize: '13px',         
