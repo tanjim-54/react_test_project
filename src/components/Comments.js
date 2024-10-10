@@ -81,11 +81,11 @@ const Comments = ({ postIndex }) => {
             
             style={{
                 color: 'white',
-                backgroundColor : '#009768' ,           
-                border: '2px solid white',             
-                borderRadius: '15px',        
+                backgroundColor : '#0000ff' ,           
+                border: '0px solid white',             
+                borderRadius: '10px',        
                 cursor: 'pointer',           
-                fontSize: '15px',            
+                fontSize: '13px',            
                 fontWeight: '700',
                 padding : '5px'
             }}
@@ -168,7 +168,7 @@ const Comments = ({ postIndex }) => {
                   cursor: 'pointer',         
                   fontSize: '13px',         
                   marginBottom : '20px',
-                  marginTop : '10px',
+                  marginTop : '15px',
                   marginRight : '20px',
                   fontWeight: '700'
                 }} >
@@ -177,7 +177,8 @@ const Comments = ({ postIndex }) => {
                       <div style={{
                   marginBottom : '10px',
                   color: 'black',
-                  cursor: 'none'
+                  cursor: 'none',
+                  letterSpacing: '1px'
                 }}>{comment.likes <= 1 ? `${comment.likes} Like` : `${comment.likes} Likes`}</div>
                       {isLiked ? '👎' : '👍'}
                     </>

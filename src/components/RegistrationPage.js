@@ -157,7 +157,7 @@ const checkUserExists = (newUserEmail) => {
                   <div className="row">
                     <div className="col-lg-12 col-md-12 col-xl-12 col-sm-12">
                       <div className="_social_registration_form_btn _mar_t40 _mar_b60">
-                        <button type="button" className="_social_registration_form_btn_link _btn1" onClick={handleSubmit}>Login now</button>
+                        <button type="button" className="_social_registration_form_btn_link _btn1" onClick={handleSubmit}>Register</button>
                       </div>
                     </div>
                   </div>
@@ -165,7 +165,7 @@ const checkUserExists = (newUserEmail) => {
                 <div className="row">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                     <div className="_social_registration_bottom_txt">
-                      <p className="_social_registration_bottom_txt_para">Don't have an account? <a href="#0">Create New Account</a></p>
+                      <p className="_social_registration_bottom_txt_para">Do you already have an account? <a href="/">Login Now</a></p>
                     </div>
                   </div>
                 </div>
