@@ -163,24 +163,29 @@ const Comments = ({ postIndex }) => {
 
                 style={{
                   
-                  color: 'blue',             
+                  color: '#1890ff',             
                   border: 'none',             
                   cursor: 'pointer',         
                   fontSize: '13px',         
                   marginBottom : '20px',
-                  marginTop : '15px',
+                  marginTop : '10px',
                   marginRight : '20px',
                   fontWeight: '700'
                 }} >
                     <>
-                      
-                      <div style={{
-                  marginBottom : '10px',
-                  color: 'black',
-                  cursor: 'none',
-                  letterSpacing: '1px'
-                }}>{comment.likes <= 1 ? `${comment.likes} Like` : `${comment.likes} Likes`}</div>
-                      {isLiked ? '👎' : '👍'}
+                    
+                <span style={{
+                    marginBottom : '10px',
+                    //marginRight : '10px',
+                    color: 'black',
+                    cursor: 'none',
+                    letterSpacing: '1px'
+                  }}
+                >
+                  {comment.likes <= 1 ? `${comment.likes} Like  •  ` : `${comment.likes} Likes  •  `}</span>
+                      <span style={{ fontSize: '13px' }}>
+                      {isLiked ? 'Unlike' : 'Like'}
+                    </span>
                     </>
                 </button></div>
 
@@ -208,6 +213,20 @@ const Comments = ({ postIndex }) => {
                     placeholder="Write a reply"
                     value={replyText}
                     onChange={(e) => setReplyText(e.target.value)}
+                    style={{
+                      width: '100%',
+                      minHeight: '60px',
+                      padding: '10px',
+                      borderRadius: '10px',
+                      border: '1px solid #dcdcdc',
+                      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+                      fontSize: '14px',
+                      fontFamily: 'Arial, sans-serif',
+                      outline: 'none',
+                      resize: 'none', // Disable resizing
+                      backgroundColor: '#f9f9f9',
+                      transition: 'border-color 0.3s ease',
+                    }}
                   />
                   <button onClick={(e) => handleAddReply(commentIndex, e)} className="_feed_inner_comment_box_icon_btn" 
                   
