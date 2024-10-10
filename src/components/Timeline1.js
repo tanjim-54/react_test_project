@@ -256,14 +256,28 @@ const Timeline1 = () => {
                         value={newText}
                         onChange={(e) => setNewText(e.target.value)}
                         style={{ 
-                          width: '100%',
-                          padding: '8px',
+                          width: '90%',
+                          padding: '10px',
                           marginBottom: '10px',
                           border: '2px solid #ccc',
-                          borderRadius: '4px',
+                          //borderRadius: '4px',
                           outline: 'none',
-                          transition: 'border-color 0.1s',
+                          //transition: 'border-color 0.1s',
+
+                          //width: '100%',
+                          minHeight: '60px',
+                          //padding: '10px',
+                          borderRadius: '10px',
+                          //border: '1px solid #dcdcdc',
+                          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+                          fontSize: '14px',
+                          fontFamily: 'Arial, sans-serif',
+                          //outline: 'none',
+                          resize: 'none', // Disable resizing
+                          backgroundColor: '#f9f9f9',
+                          transition: 'border-color 0.3s ease',
                          }}
+                        
                          onFocus={(e) => (e.target.style.borderColor = '#007bff')}
                           onBlur={(e) => (e.target.style.borderColor = '#ccc')}
                       />
@@ -272,7 +286,7 @@ const Timeline1 = () => {
                         style={{ 
                         
                           color: 'white',
-                          backgroundColor : '#009768' ,           
+                          backgroundColor : '#1890ff' ,           
                           border: '2px solid white',             
                           borderRadius: '15px',        
                           cursor: 'pointer',           

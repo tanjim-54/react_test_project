@@ -36,6 +36,10 @@ const Comments = ({ postIndex }) => {
       setReplyText('');
       setActiveCommentIndex(null);
     }
+    else{
+      alert('Reply cannot be empty!');
+      setActiveCommentIndex(null);
+    }
   };
 
   // const handleKeyDownAddReply = (commentIndex, e) => {
