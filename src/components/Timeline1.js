@@ -76,7 +76,7 @@ const Timeline1 = () => {
                   <div className="_feed_inner_timeline_post_box_txt">
                     <h4 className="_feed_inner_timeline_post_box_title">{post.username}</h4>
                     <p className="_feed_inner_timeline_post_box_para">{new Date(post.date).toLocaleString()}, 
-                      <a href="#0"> <span style={{ color: post.hidden ? 'red' : '#41e535' }}>
+                      <a href="#0"> <span style={{ color: post.hidden ? 'red' : 'blue' }}>
                       {post.hidden ? 'Private' : 'Public'}
                     </span> </a>
                     </p>

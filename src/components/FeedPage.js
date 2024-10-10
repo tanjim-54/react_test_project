@@ -19,7 +19,7 @@ const FeedPage = () => {
 					<div className="_layout_inner_wrap">
 						<div className="row">
 							
-						{/* <!-- Left Sidebar tanjim --> */}
+						{/* <!-- Left Sidebar --> */}
 						<div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
 							<div className="_layout_left_sidebar_wrap">
 								<div className="_layout_left_sidebar_inner">
