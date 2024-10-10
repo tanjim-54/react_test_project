@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleLike, deletePost, editPost, toggleHidePost } from '../features/userSlice';
+import { toggleLike, deletePost, editPost, toggleHidePost, toggleRepliesVisibility } from '../features/userSlice';
 import Comments from './Comments';
 
 const Timeline1 = () => {
@@ -13,6 +13,8 @@ const Timeline1 = () => {
   const handleLike = (index, username) => {
     dispatch(toggleLike({ postIndex: index, username }));
   };
+
+ 
 
   const [isDropShow2, setIsDropShow2] = useState(false);
 
@@ -304,7 +306,20 @@ const Timeline1 = () => {
               </div>
               <div className="_feed_inner_timeline_total_reacts_txt">
                 <p className="_feed_inner_timeline_total_reacts_para1">
-                  <a href="#0"><span>{post.comments ? post.comments.reduce((acc, comment) => acc + 1 + (comment.replies ? comment.replies.length : 0), 0) : 0}</span> Comment</a>
+                <a href="#0">
+                <span>
+                  {post.comments 
+                    ? post.comments.reduce(
+                        (acc, comment) => acc + 1 + (comment.replies ? comment.replies.length : 0), 0
+                      ) 
+                    : 0}
+                </span> 
+                {post.comments && post.comments.reduce(
+                  (acc, comment) => acc + 1 + (comment.replies ? comment.replies.length : 0), 0
+                ) <= 1 
+                  ? " Comment" 
+                  : " Comments"}
+              </a>
                 </p>
                 <p className="_feed_inner_timeline_total_reacts_para2"><span>0</span> Share</p>
               </div>

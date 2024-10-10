@@ -31,7 +31,7 @@ const PostInput = () => {
           } else {
             alert('Post cannot be empty!');
           }
-          window.location.reload();
+          //window.location.reload();
       };
 
     return (

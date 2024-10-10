@@ -2,9 +2,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../features/userSlice';
 
 const Navbar = () => {
 
+	const dispatch = useDispatch();
 	const username = useSelector((state) => state.user.username);
 
 	const [isDropShow1, setIsDropShow1] = useState(false);
@@ -17,8 +20,10 @@ const Navbar = () => {
 	const navigate = useNavigate();
 
   const handleLogout = () => {
+	
     // Remove user data from local storage or context
-    localStorage.removeItem('user'); // Adjust this according to your logic
+    //localStorage.removeItem('user'); // Adjust this according to your logic
+	dispatch(logoutUser());
     // Navigate to the login page
     navigate('/LoginPage');
   };
