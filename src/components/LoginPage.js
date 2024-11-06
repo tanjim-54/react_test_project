@@ -13,20 +13,15 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-
-import logo from '../assets/images/logo.svg'; // Assuming you have proper paths
+import logo from '../assets/images/logo.svg'; 
 import googleLogo from '../assets/images/google.svg';
 import loginImage from '../assets/images/login.png';
-import shape1 from '../assets/images/shape1.svg'; // Import your images
+import shape1 from '../assets/images/shape1.svg'; 
 import darkShape from '../assets/images/dark_shape.svg';
 import shape2 from '../assets/images/shape2.svg';
 import darkShape1 from '../assets/images/dark_shape1.svg';
 import shape3 from '../assets/images/shape3.svg';
 import darkShape2 from '../assets/images/dark_shape2.svg';
-// import registrationImage from '../assets/images/registration.png';
-// import registrationImageDark from '../assets/images/registration1.png';
-// import logoImage from '../assets/images/logo.svg';
-// import googleImage from '../assets/images/google.svg';
 
 
 
@@ -43,15 +38,14 @@ const LoginPage = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Retrieve stored users from local storage
+    
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Check for matching user
+    
     const matchedUser = storedUsers.find(
       (user) => user.email === email && user.password === password
     );
   
-    // If match found, set the authenticated user in Redux
     if (matchedUser) {
       // alert('Login successful!');
       dispatch(setAuthenticatedUser({ email }));

@@ -18,20 +18,18 @@ const PostInput = () => {
 
         if (postText.trim()) {
             const newPost = {
-              text: postText.trim(),  // Trim any extra spaces
-              username: username,     // Include the username in the new post
+              text: postText.trim(),  
+              username: username,     
               date: new Date().toISOString(),
             };
       
-            // Dispatch the action to add the post with text and username
             dispatch(addPost(newPost));
       
-            // Clear the post input field after adding the post
             setPostText('');
           } else {
             alert('Post cannot be empty!');
           }
-          //window.location.reload();
+          
       };
 
     return (

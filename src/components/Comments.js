@@ -14,7 +14,7 @@ const Comments = ({ postIndex }) => {
   const [commentText, setCommentText] = useState('');
   const [replyText, setReplyText] = useState('');
   const [activeCommentIndex, setActiveCommentIndex] = useState(null);
-  const [showComments, setShowComments] = useState(true); // New state for toggling comments visibility
+  const [showComments, setShowComments] = useState(true); 
 //   const [showReplies, setShowReplies] = useState(true);
 
   const handleAddComment = (e) => {
@@ -103,7 +103,7 @@ const Comments = ({ postIndex }) => {
       {post.comments.length ? <div className="_previous_comment">
         <button 
           type="button" 
-          onClick={toggleComments} // Toggle comments on button click
+          onClick={toggleComments} 
           style={{
             color: '#433e3e',
             border: 'none',

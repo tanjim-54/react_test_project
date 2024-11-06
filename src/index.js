@@ -13,8 +13,8 @@ import store from './store/store'; // Import your store
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     
-        <Provider store={store}>
-            <StrictMode></StrictMode>
+    <Provider store={store}>
+    <StrictMode></StrictMode>
     <App />
     <StrictMode/>
   </Provider>,

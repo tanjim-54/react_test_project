@@ -21,10 +21,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
 	
-    // Remove user data from local storage or context
-    //localStorage.removeItem('user'); // Adjust this according to your logic
 	dispatch(logoutUser());
-    // Navigate to the login page
     navigate('/LoginPage');
   };
 
@@ -501,7 +498,7 @@ const Navbar = () => {
 												</li>
 												<li className="_nav_dropdown_list_item">
 												<a href="#0" className="_nav_dropdown_link">
-													<div className="_nav_drop_info">
+													<div className="_nav_drop_info" >
 													<span>
 														<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
 														<path stroke="#377DFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19a9 9 0 100-18 9 9 0 000 18z"/>

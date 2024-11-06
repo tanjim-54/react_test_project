@@ -25,22 +25,22 @@ const Timeline1 = () => {
 
   const handleDelete = (index) => {
     if (window.confirm('Are you sure you want to delete this post?')) {
-      dispatch(deletePost({ postIndex: index })); // Dispatch deletePost action
+      dispatch(deletePost({ postIndex: index })); 
     }
     setIsDropShow2((prev) => !prev);
   };
 
-  const [editIndex, setEditIndex] = useState(null); // Track which post is being edited
-  const [newText, setNewText] = useState(''); // Track new text while editing
+  const [editIndex, setEditIndex] = useState(null); 
+  const [newText, setNewText] = useState(''); 
 
   const handleEditClick = (index, currentText) => {
-    setEditIndex(index); // Set the post index being edited
-    setNewText(currentText); // Set the current post text in the input field
+    setEditIndex(index); 
+    setNewText(currentText); 
     setIsDropShow2((prev) => !prev);
   };
 
   const handleSaveClick = (index) => {
-    dispatch(editPost({ postIndex: index, updatedText: newText })); // Dispatch action to update the post
+    dispatch(editPost({ postIndex: index, updatedText: newText })); 
     setEditIndex(null); // Reset edit mode
   };
 

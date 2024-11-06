@@ -1,6 +1,5 @@
   import { createSlice } from '@reduxjs/toolkit';
 
-  // Load stored posts from local storage or initialize with an empty array
   const storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
 
   const userSlice = createSlice({
@@ -11,14 +10,6 @@
       password: '',
       confirmPassword: '',
       isAuthenticated: false, 
-
-      // posts: storedPosts.map(post => ({
-      //   ...post,
-      //   likedBy: post.likedBy || [], // Ensure likedBy is always an array
-      //   likes: post.likes || 0,
-      //   comments: post.comments || [], // Add comments array for each post 
-      //   hidden: post.hidden || false
-      // }))
 
       posts: storedPosts.map(post => ({
         ...post,
@@ -40,13 +31,13 @@
         const storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
         state.posts = storedPosts.map(post => ({
           ...post,
-          likedBy: post.likedBy || [], // Ensure likedBy is always an array
+          likedBy: post.likedBy || [], 
           likes: post.likes || 0,
-          comments: post.comments || [], // Initialize comments array
+          comments: post.comments || [], 
           hidden: post.hidden || false
         }));
       },
-      // User authentication actions
+      
       setUser: (state, action) => {
         state.email = action.payload.email;
         state.password = action.payload.password;
@@ -54,8 +45,8 @@
       },
       setAuthenticatedUser: (state, action) => {
         state.email = action.payload.email;
-        state.username = action.payload.email.split('@')[0].toUpperCase(); // Extract and capitalize username
-        state.isAuthenticated = true; // Set authenticated status
+        state.username = action.payload.email.split('@')[0].toUpperCase(); 
+        state.isAuthenticated = true; 
         localStorage.setItem('user', JSON.stringify({ email: action.payload.email }));
       },
       initializeUser: (state) => {
@@ -73,50 +64,50 @@
         localStorage.removeItem('user');
       },
 
-      // Posts-related actions
+      
       addPost: (state, action) => {
         const newPost = {
           text: action.payload.text,
           username: action.payload.username,
           date: new Date().toISOString(),
-          likes: 0,  // Initialize likes for each post
+          likes: 0,  
           likedBy: [],
-          comments: [], // Initialize comments array
+          comments: [], 
         };
         state.posts.unshift(newPost);
         localStorage.setItem('posts', JSON.stringify(state.posts));
       },
       
       toggleLike: (state, action) => {
-        const { postIndex, username } = action.payload; // Get the post index and username from the action
+        const { postIndex, username } = action.payload; 
         const post = state.posts[postIndex];
       
         if (post.likedBy.includes(username)) {
-          // If the user has already liked the post, unlike it
-          post.likedBy = post.likedBy.filter(user => user !== username); // Remove user from likedBy
-          post.likes -= 1; // Decrement likes
+          
+          post.likedBy = post.likedBy.filter(user => user !== username); 
+          post.likes -= 1; 
         } else {
-          // If the user has not liked the post, like it
-          post.likedBy.push(username); // Add user to likedBy
-          post.likes += 1; // Increment likes
+          
+          post.likedBy.push(username); 
+          post.likes += 1; 
         }
       
-        localStorage.setItem('posts', JSON.stringify(state.posts)); // Update local storage
+        localStorage.setItem('posts', JSON.stringify(state.posts)); 
       },
       addComment: (state, action) => {
         const { postIndex, username, commentText } = action.payload;
         const post = state.posts[postIndex];
         const newComment = {
           username: username,
-          text: commentText, // Corrected property name for clarity
-          date: new Date().toISOString(), // Optional date property
-          replies: [], // Initialize replies array for each comment
+          text: commentText, 
+          date: new Date().toISOString(), 
+          replies: [], 
           showReplies: false,
-          likedBy: [], // Add likedBy array to track users who liked the comment
-          likes: 0, // Add likes count for the comment
+          likedBy: [], 
+          likes: 0, 
         };
-        post.comments.push(newComment); // Add the new comment to the post
-        localStorage.setItem('posts', JSON.stringify(state.posts)); // Save to local storage
+        post.comments.push(newComment); 
+        localStorage.setItem('posts', JSON.stringify(state.posts)); 
       },
       addReply: (state, action) => {
         const { postIndex, commentIndex, username, replyText } = action.payload;
@@ -124,18 +115,18 @@
         const comment = post.comments[commentIndex];
         const newReply = {
           username: username,
-          text: replyText, // Corrected property name for clarity
-          date: new Date().toISOString(), // Optional date property
+          text: replyText, 
+          date: new Date().toISOString(), 
         };
-        comment.replies.push(newReply); // Add the reply to the specific comment
-        localStorage.setItem('posts', JSON.stringify(state.posts)); // Save to local storage
+        comment.replies.push(newReply); 
+        localStorage.setItem('posts', JSON.stringify(state.posts)); 
       },
       toggleRepliesVisibility: (state, action) => {
         const { postIndex, commentIndex } = action.payload;
         const post = state.posts[postIndex];
         const comment = post.comments[commentIndex];
-        comment.showReplies = !comment.showReplies; // Toggle visibility of replies
-        localStorage.setItem('posts', JSON.stringify(state.posts)); // Save to local storage
+        comment.showReplies = !comment.showReplies; 
+        localStorage.setItem('posts', JSON.stringify(state.posts)); 
       },
       toggleCommentLike: (state, action) => {
         const { postIndex, commentIndex, username } = action.payload; // Get the post index, comment index, and username
